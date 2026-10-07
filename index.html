@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Atractivat | Peluquería en Salt</title>
+
+    <meta name="description"
+        content="Atractiva't Peluquería en Salt, Girona. Descubre nuestro espacio, horarios y contacta con nosotros para pedir cita.">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --crema: #f4eee5;
+            --crema-claro: #faf7f2;
+            --crema-oscuro: #e9dfd2;
+            --morado: #4b285d;
+            --morado-claro: #765282;
+            --morado-suave: #eee5f0;
+            --negro: #242124;
+            --gris: #68636a;
+            --blanco: #ffffff;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--crema);
+            color: var(--negro);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================
+           BARRA DE NAVEGACIÓN
+        ========================= */
+
+        header {
+            width: 100%;
+            height: 80px;
+            background: rgba(250, 247, 242, 0.96);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            z-index: 1000;
+
+            border-bottom: 1px solid rgba(75, 40, 93, 0.12);
+
+            backdrop-filter: blur(10px);
+        }
+
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 43px;
+            height: 43px;
+
+            border: 2px solid var(--morado);
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--morado);
+
+            font-size: 20px;
+
+            position: relative;
+        }
+
+        .logo-icon::after {
+            content: "";
+            position: absolute;
+
+            width: 18px;
+            height: 18px;
+
+            border-right: 2px solid var(--morado);
+            border-bottom: 2px solid var(--morado);
+
+            transform: rotate(45deg);
+
+            top: 5px;
+            left: 10px;
+
+            opacity: 0.45;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-family: Georgia, serif;
+
+            font-size: 23px;
+
+            letter-spacing: 3px;
+
+            color: var(--morado);
+
+            font-weight: bold;
+        }
+
+        .logo-subtitle {
+            font-size: 9px;
+
+            letter-spacing: 4px;
+
+            color: var(--gris);
+
+            margin-top: 2px;
+        }
+
+
+        /* =========================
+           MENÚ
+        ========================= */
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav a {
+            font-size: 13px;
+
+            color: var(--negro);
+
+            transition: 0.3s;
+
+            position: relative;
+        }
+
+        nav a::after {
+            content: "";
+
+            position: absolute;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--morado);
+
+            left: 0;
+            bottom: -7px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--morado);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .nav-button {
+            background: var(--morado);
+
+            color: white !important;
+
+            padding: 12px 18px;
+
+            border-radius: 30px;
+
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+            background: #321a3d;
+
+            transform: translateY(-2px);
+        }
+
+        .nav-button::after {
+            display: none;
+        }
+
+
+        /* =========================
+           PORTADA / HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            padding-top: 80px;
+
+            display: grid;
+
+            grid-template-columns: 48% 52%;
+
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 20% 30%,
+                    rgba(118, 82, 130, 0.08),
+                    transparent 35%
+                ),
+                var(--crema);
+        }
+
+        .hero-content {
+            padding: 70px 7% 70px 10%;
+
+            animation: aparecer 1s ease;
+        }
+
+        .small-title {
+            color: var(--morado);
+
+            font-size: 12px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+        }
+
+        /* TÍTULO DE PORTADA MÁS PEQUEÑO */
+
+        .hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: clamp(48px, 5.5vw, 80px);
+
+            font-weight: normal;
+
+            letter-spacing: 3px;
+
+            color: var(--morado);
+
+            line-height: 0.95;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-family: Georgia, serif;
+
+            font-style: italic;
+
+            font-weight: normal;
+
+            font-size: 28px;
+
+            color: var(--negro);
+
+            margin-bottom: 25px;
+        }
+
+        .hero-text {
+            max-width: 540px;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            color: var(--gris);
+
+            margin-bottom: 32px;
+        }
+
+
+        /* =========================
+           BOTONES
+        ========================= */
+
+        .buttons {
+            display: flex;
+
+            gap: 14px;
+
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 15px 24px;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .button-primary {
+            background: var(--morado);
+
+            color: white;
+
+            box-shadow: 0 10px 25px rgba(75, 40, 93, 0.2);
+        }
+
+        .button-primary:hover {
+            background: #321a3d;
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 15px 30px rgba(75, 40, 93, 0.28);
+        }
+
+        .button-secondary {
+            border: 1px solid rgba(75, 40, 93, 0.35);
+
+            color: var(--morado);
+
+            background: transparent;
+        }
+
+        .button-secondary:hover {
+            background: var(--morado-suave);
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           FOTO DE LA DUEÑA
+        ========================= */
+
+        .hero-image {
+            height: calc(100vh - 80px);
+
+            min-height: 650px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background: var(--crema-oscuro);
+        }
+
+        .hero-image::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 25px;
+
+            border: 1px solid rgba(255, 255, 255, 0.6);
+
+            z-index: 2;
+
+            pointer-events: none;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            filter: saturate(0.88);
+        }
+
+        .image-message {
+            position: absolute;
+
+            inset: 0;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 30px;
+
+            color: var(--morado);
+
+            background: var(--crema-oscuro);
+
+            font-family: Georgia, serif;
+
+            font-size: 20px;
+
+            z-index: 1;
+        }
+
+
+        /* =========================
+           SECCIONES GENERALES
+        ========================= */
+
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            display: block;
+
+            color: var(--morado);
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 13px;
+        }
+
+        .section-title h2 {
+            font-family: Georgia, serif;
+
+            font-weight: normal;
+
+            font-size: 43px;
+
+            color: var(--negro);
+        }
+
+        .section-title p {
+            max-width: 600px;
+
+            margin: 15px auto 0;
+
+            color: var(--gris);
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           SERVICIOS
+        ========================= */
+
+        .services {
+            background: var(--crema-claro);
+        }
+
+        .services-grid {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .service-card {
+            background: var(--crema);
+
+            border: 1px solid rgba(75, 40, 93, 0.10);
+
+            padding: 35px 25px;
+
+            text-align: center;
+
+            border-radius: 4px;
+
+            transition: 0.3s;
+
+            position: relative;
+        }
+
+        .service-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 0;
+
+            height: 3px;
+
+            background: var(--morado);
+
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow: 0 15px 35px rgba(75, 40, 93, 0.08);
+        }
+
+        .service-card:hover::before {
+            width: 55px;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: var(--morado-suave);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: var(--morado);
+
+            font-size: 24px;
+        }
+
+        .service-card h3 {
+            font-family: Georgia, serif;
+
+            font-size: 22px;
+
+            font-weight: normal;
+
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--gris);
+
+            line-height: 1.6;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           SOBRE NOSOTROS
+        ========================= */
+
+        .about {
+            background: var(--crema);
+        }
+
+        .about-container {
+            max-width: 1050px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .about-decoration {
+            position: relative;
+
+            padding: 30px;
+        }
+
+        .about-box {
+            background: var(--morado);
+
+            min-height: 400px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 50px;
+
+            position: relative;
+
+            color: white;
+        }
+
+        .about-box::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 15px;
+
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .about-box-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-box h3 {
+            font-family: Georgia, serif;
+
+            font-size: 38px;
+
+            font-weight: normal;
+
+            margin-bottom: 15px;
+        }
+
+        .about-box p {
+            color: #e7dce9;
+
+            line-height: 1.7;
+        }
+
+        .about-text span {
+            color: var(--morado);
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+        }
+
+        .about-text h2 {
+            font-family: Georgia, serif;
+
+            font-size: 42px;
+
+            font-weight: normal;
+
+            margin: 15px 0 25px;
+        }
+
+        .about-text p {
+            color: var(--gris);
+
+            line-height: 1.9;
+
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            font-family: Georgia, serif;
+
+            font-size: 25px;
+
+            font-style: italic;
+
+            color: var(--morado);
+
+            margin-top: 30px;
+        }
+
+
+        /* =========================
+           INFORMACIÓN
+        ========================= */
+
+        .info {
+            background: var(--crema-claro);
+
+            padding-top: 80px;
+
+            padding-bottom: 80px;
+        }
+
+        .info-grid {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 0;
+        }
+
+        .info-card {
+            text-align: center;
+
+            padding: 25px;
+
+            border-right: 1px solid rgba(75, 40, 93, 0.15);
+        }
+
+        .info-card:last-child {
+            border-right: none;
+        }
+
+        .info-icon {
+            font-size: 28px;
+
+            color: var(--morado);
+
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            font-family: Georgia, serif;
+
+            font-size: 22px;
+
+            font-weight: normal;
+
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            color: var(--gris);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+        .info-card a {
+            color: var(--morado);
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           HORARIOS
+        ========================= */
+
+        .schedule {
+            margin-top: 10px;
+        }
+
+        .schedule-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            border-bottom: 1px solid rgba(75, 40, 93, 0.12);
+
+            padding: 10px 0;
+
+            font-size: 14px;
+        }
+
+        .schedule-row:last-child {
+            border-bottom: none;
+        }
+
+
+        /* =========================
+           LLAMADA A WHATSAPP
+        ========================= */
+
+        .appointment {
+            background: var(--morado);
+
+            color: white;
+
+            padding: 70px 8%;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .appointment::before {
+            content: "✂";
+
+            position: absolute;
+
+            font-size: 180px;
+
+            opacity: 0.05;
+
+            right: 8%;
+
+            top: -40px;
+
+            transform: rotate(-25deg);
+        }
+
+        .appointment h2 {
+            font-family: Georgia, serif;
+
+            font-size: 42px;
+
+            font-weight: normal;
+
+            margin-bottom: 15px;
+
+            position: relative;
+        }
+
+        .appointment p {
+            color: #dfd3e3;
+
+            margin-bottom: 30px;
+
+            position: relative;
+        }
+
+        .appointment .button {
+            background: white;
+
+            color: var(--morado);
+
+            position: relative;
+        }
+
+        .appointment .button:hover {
+            transform: translateY(-3px);
+
+            background: var(--crema);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #252128;
+
+            color: white;
+
+            padding: 55px 8% 25px;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1.5fr 1fr 1fr;
+
+            gap: 50px;
+
+            padding-bottom: 40px;
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .footer-logo .logo-name {
+            color: white;
+        }
+
+        .footer-logo .logo-subtitle {
+            color: #aaa4ad;
+        }
+
+        .footer-description {
+            color: #aaa4ad;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+
+            max-width: 330px;
+
+            margin-top: 18px;
+        }
+
+        .footer-column h3 {
+            font-family: Georgia, serif;
+
+            font-weight: normal;
+
+            font-size: 20px;
+
+            margin-bottom: 18px;
+        }
+
+        .footer-column a,
+        .footer-column p {
+            display: block;
+
+            color: #aaa4ad;
+
+            font-size: 14px;
+
+            margin-bottom: 10px;
+
+            transition: 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            max-width: 1100px;
+
+            margin: 25px auto 0;
+
+            text-align: center;
+
+            color: #77727a;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           ANIMACIÓN
+        ========================= */
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =========================
+           RESPONSIVE / TABLET
+        ========================= */
+
+        @media (max-width: 950px) {
+
+            header {
+                padding: 0 4%;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a:not(.nav-button) {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                padding: 120px 8% 60px;
+            }
+
+            .hero-image {
+                height: 600px;
+
+                min-height: 0;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+            }
+
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .info-card:nth-child(2) {
+                border-right: none;
+            }
+
+            .info-card {
+                border-bottom: 1px solid rgba(75, 40, 93, 0.15);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        /* =========================
+           RESPONSIVE / MÓVIL
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            header {
+                height: 70px;
+            }
+
+            .logo-name {
+                font-size: 19px;
+            }
+
+            .logo-subtitle {
+                font-size: 7px;
+            }
+
+            .logo-icon {
+                width: 38px;
+                height: 38px;
+            }
+
+            .hero {
+                padding-top: 70px;
+            }
+
+            .hero-content {
+                padding: 70px 7% 50px;
+            }
+
+            /* TÍTULO MÁS PEQUEÑO EN MÓVIL */
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero h2 {
+                font-size: 23px;
+            }
+
+            .hero-text {
+                font-size: 15px;
+            }
+
+            .hero-image {
+                height: 480px;
+            }
+
+            section {
+                padding: 75px 6%;
+            }
+
+            .section-title h2 {
+                font-size: 34px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-box {
+                min-height: 320px;
+            }
+
+            .about-text h2 {
+                font-size: 34px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-card {
+                border-right: none;
+
+                border-bottom: 1px solid rgba(75, 40, 93, 0.15);
+
+                padding: 30px 10px;
+            }
+
+            .info-card:last-child {
+                border-bottom: none;
+            }
+
+            .appointment h2 {
+                font-size: 32px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+            }
+
+            .buttons {
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+            .button {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         MENÚ
+    ========================= -->
+
+    <header>
+
+        <a href="#inicio" class="logo">
+
+            <div class="logo-icon">
+                ✂
+            </div>
+
+            <div class="logo-text">
+
+                <div class="logo-name">
+                    ATRACTIVA'T
+                </div>
+
+                <div class="logo-subtitle">
+                    PELUQUERÍA
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="#inicio">Inicio</a>
+
+            <a href="#servicios">Servicios</a>
+
+            <a href="#nosotros">Nosotros</a>
+
+            <a href="#horarios">Horarios</a>
+
+            <a href="#contacto">Contacto</a>
+
+            <a
+                href="https://wa.me/34644699670"
+                target="_blank"
+                class="nav-button">
+                Pedir cita
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         PORTADA
+    ========================= -->
+
+    <section class="hero" id="inicio">
+
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Peluquería en Salt · Girona
+            </div>
+
+
+            <h1>
+                ATRACTIVA'T
+            </h1>
+
+
+            <h2>
+                Belleza en cada detalle.
+            </h2>
+
+
+            <p class="hero-text">
+
+                Un espacio pensado para cuidar tu cabello,
+                descubrir tu estilo y hacerte sentir especial.
+                Ven a conocernos en Salt y déjate asesorar.
+
+            </p>
+
+
+            <div class="buttons">
+
+                <a
+                    href="https://wa.me/34644699670"
+                    target="_blank"
+                    class="button button-primary">
+
+                    💬 Pedir cita por WhatsApp
+
+                </a>
+
+
+                <a
+                    href="#contacto"
+                    class="button button-secondary">
+
+                    Ver contacto
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOTO DE LA DUEÑA -->
+
+        <div class="hero-image">
+
+            <img
+                src="duena.jpeg"
+                alt="Atractiva't Peluquería">
+
+            <div class="image-message">
+                Aquí aparecerá la foto de la peluquería.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICIOS
+    ========================= -->
+
+    <section class="services" id="servicios">
+
+
+        <div class="section-title">
+
+            <span>
+                Cuidamos de ti
+            </span>
+
+            <h2>
+                Nuestros servicios
+            </h2>
+
+            <p>
+                Un trato personalizado y atención a cada detalle
+                para que salgas de Atractivat sintiéndote genial.
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ✂
+                </div>
+
+                <h3>
+                    Cortes
+                </h3>
+
+                <p>
+                    Encuentra el estilo que mejor encaja contigo
+                    y disfruta de un acabado cuidado.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Color
+                </h3>
+
+                <p>
+                    Dale un nuevo aire a tu cabello con un resultado
+                    pensado para ti.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ♢
+                </div>
+
+                <h3>
+                    Mechas
+                </h3>
+
+                <p>
+                    Aporta luz y personalidad a tu cabello con
+                    un estilo adaptado a ti.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ♡
+                </div>
+
+                <h3>
+                    Peinados
+                </h3>
+
+                <p>
+                    Acabados para tu día a día o para esos momentos
+                    en los que quieres lucir diferente.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Cuidado
+                </h3>
+
+                <p>
+                    Tratamos tu cabello con mimo para mantenerlo
+                    bonito y cuidado.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ♧
+                </div>
+
+                <h3>
+                    Estilo
+                </h3>
+
+                <p>
+                    Te ayudamos a encontrar un look que refleje
+                    tu personalidad.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SOBRE NOSOTROS
+    ========================= -->
+
+    <section class="about" id="nosotros">
+
+
+        <div class="about-container">
+
+
+            <div class="about-decoration">
+
+                <div class="about-box">
+
+                    <div class="about-box-content">
+
+                        <h3>
+                            ATRACTIVA'T
+                        </h3>
+
+                        <p>
+                            Tu estilo.<br>
+                            Tu personalidad.<br>
+                            Tu momento.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-text">
+
+                <span>
+                    Sobre nosotros
+                </span>
+
+                <h2>
+                    Un lugar para ti.
+                </h2>
+
+                <p>
+                    En Atractiva't creemos que ir a la peluquería
+                    es mucho más que cambiar de look.
+                </p>
+
+                <p>
+                    Queremos ofrecerte un espacio agradable,
+                    cercano y donde puedas disfrutar de un
+                    momento para ti.
+                </p>
+
+                <p>
+                    Estamos en Salt, Girona, y estaremos encantados
+                    de atenderte y ayudarte a encontrar el estilo
+                    que buscas.
+                </p>
+
+                <div class="signature">
+                    Tu imagen, nuestra pasión.
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INFORMACIÓN
+    ========================= -->
+
+    <section class="info" id="horarios">
+
+
+        <div class="info-grid">
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    ◷
+                </div>
+
+                <h3>
+                    Horario
+                </h3>
+
+                <div class="schedule">
+
+                    <div class="schedule-row">
+                        <span>Martes - Viernes</span>
+                        <strong>
+                            9:00 - 12:45
+                        </strong>
+                    </div>
+
+                    <div class="schedule-row">
+                        <span>Tardes</span>
+                        <strong>
+                            15:00 - 19:00
+                        </strong>
+                    </div>
+
+                    <div class="schedule-row">
+                        <span>Sábado</span>
+                        <strong>
+                            8:00 - 15:00
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    ♧
+                </div>
+
+                <h3>
+                    Ubicación
+                </h3>
+
+                <p>
+
+                    C/ Rafael Massó 52<br>
+
+                    SALT (Girona)
+
+                </p>
+
+                <br>
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=C%2F%20Rafael%20Mass%C3%B3%2052%2C%20Salt%2C%20Girona"
+                    target="_blank">
+
+                    📍 Ver en Google Maps
+
+                </a>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    ☎
+                </div>
+
+                <h3>
+                    Contacto
+                </h3>
+
+                <p>
+
+                    <a href="tel:972249288">
+                        972 249 288
+                    </a>
+
+                    <br><br>
+
+                    WhatsApp
+
+                    <br>
+
+                    <a
+                        href="https://wa.me/34644699670"
+                        target="_blank">
+
+                        644 699 670
+
+                    </a>
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    ◎
+                </div>
+
+                <h3>
+                    Instagram
+                </h3>
+
+                <p>
+                    Descubre nuestros trabajos,
+                    novedades y mucho más.
+                </p>
+
+                <br>
+
+                <a
+                    href="https://www.instagram.com/atractivat/"
+                    target="_blank">
+
+                    @atractivat
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PEDIR CITA
+    ========================= -->
+
+    <section class="appointment" id="contacto">
+
+
+        <h2>
+            ¿Quieres pedir cita?
+        </h2>
+
+
+        <p>
+            Escríbenos directamente por WhatsApp y estaremos
+            encantados de atenderte.
+        </p>
+
+
+        <a
+            href="https://wa.me/34644699670"
+            target="_blank"
+            class="button">
+
+            💬 Escribir por WhatsApp
+
+        </a>
+
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+
+        <div class="footer-content">
+
+
+            <div class="footer-logo">
+
+                <div class="logo">
+
+                    <div class="logo-icon">
+                        ✂
+                    </div>
+
+                    <div class="logo-text">
+
+                        <div class="logo-name">
+                            ATRACTIVA'T
+                        </div>
+
+                        <div class="logo-subtitle">
+                            PELUQUERÍA
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <p class="footer-description">
+
+                    Peluquería en Salt, Girona.
+                    Un espacio donde tu estilo y tu
+                    personalidad son los protagonistas.
+
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Enlaces
+                </h3>
+
+                <a href="#inicio">
+                    Inicio
+                </a>
+
+                <a href="#servicios">
+                    Servicios
+                </a>
+
+                <a href="#nosotros">
+                    Nosotros
+                </a>
+
+                <a href="#horarios">
+                    Horarios
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Contacto
+                </h3>
+
+                <p>
+                    C/ Rafael Massó 52
+                </p>
+
+                <p>
+                    Salt (Girona)
+                </p>
+
+                <a href="tel:972249288">
+                    972 249 288
+                </a>
+
+                <a
+                    href="https://wa.me/34644699670"
+                    target="_blank">
+
+                    WhatsApp: 644 699 670
+
+                </a>
+
+                <a
+                    href="https://www.instagram.com/atractivat/"
+                    target="_blank">
+
+                    Instagram
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Atractiva't Peluquería · Salt, Girona
+
+        </div>
+
+
+    </footer>
+
+
+</body>
+
+</html>
