@@ -224,7 +224,8 @@
 
             display: grid;
 
-            grid-template-columns: 48% 52%;
+            /* CORREGIDO: más espacio para el texto */
+            grid-template-columns: 52% 48%;
 
             align-items: center;
 
@@ -238,9 +239,13 @@
         }
 
         .hero-content {
-            padding: 70px 7% 70px 10%;
+            padding: 70px 6% 70px 10%;
 
             animation: aparecer 1s ease;
+
+            /* Evita que el contenido invada la foto */
+            min-width: 0;
+            overflow: hidden;
         }
 
         .small-title {
@@ -255,22 +260,29 @@
             margin-bottom: 20px;
         }
 
-        /* TÍTULO DE PORTADA MÁS PEQUEÑO */
+        /* TÍTULO CORREGIDO */
 
         .hero h1 {
             font-family: Georgia, "Times New Roman", serif;
 
-            font-size: clamp(48px, 5.5vw, 80px);
+            /* Tamaño ligeramente menor */
+            font-size: clamp(44px, 4.8vw, 70px);
 
             font-weight: normal;
 
-            letter-spacing: 3px;
+            /* Menos separación para que entre correctamente */
+            letter-spacing: 1px;
 
             color: var(--morado);
 
             line-height: 0.95;
 
             margin-bottom: 20px;
+
+            /* Nunca puede salir de su columna */
+            max-width: 100%;
+
+            overflow-wrap: break-word;
         }
 
         .hero h2 {
@@ -377,6 +389,9 @@
             overflow: hidden;
 
             background: var(--crema-oscuro);
+
+            /* Asegura que la foto quede en su propia columna */
+            min-width: 0;
         }
 
         .hero-image::before {
@@ -1004,6 +1019,10 @@
                 padding: 120px 8% 60px;
             }
 
+            .hero h1 {
+                font-size: clamp(44px, 8vw, 70px);
+            }
+
             .hero-image {
                 height: 600px;
 
@@ -1070,10 +1089,9 @@
                 padding: 70px 7% 50px;
             }
 
-            /* TÍTULO MÁS PEQUEÑO EN MÓVIL */
-
             .hero h1 {
                 font-size: 45px;
+                letter-spacing: 1px;
             }
 
             .hero h2 {
@@ -1561,7 +1579,7 @@
                 <br>
 
                 <a
-                    href="https://www.google.com/maps/search/?api=1&query=C%2F%20Rafael%20Mass%C3%B3%2052%2C%20Salt%2C%20Girona"
+                    href="https://www.google.com/maps/search/?api=1&query=C%2F%20Rafael%20Mass%C3%B2%2052%2C%20Salt%2C%20Girona"
                     target="_blank">
 
                     📍 Ver en Google Maps
